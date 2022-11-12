@@ -3,15 +3,8 @@ const DOMSelectors = {
   body: document.getElementById("body"),
   selector: document.getElementById("select"),
   history: document.getElementById("history"),
+  button: document.getElementById("button")
 };
-
-function nowred(e) {
-  e.style.color = "red";
-  e.style.fontSize = "50px";
-}
-
-nowred(DOMSelectors.hist);
-nowred(DOMSelectors.thing);
 
 function redbkground(e) {
   e.style.backgroundColor = "red";
@@ -38,11 +31,26 @@ function divide(x, y) {
 }
 
 function mathTime() {
-  var operator = readOper();
-  if ((operator = "+")) {
-    let in1 = parseInt(document.getElementById("num1").value);
-    let in2 = parseInt(document.getElementById("num2").value);
-    let out = add(in1, in2);
-    console.log(out);
+  let operator = readOper();
+  let in1 = parseInt(document.getElementById("num1").value);
+  let in2 = parseInt(document.getElementById("num2").value);
+  console.log(operator);
+  if ((operator === `+`)) {
+    return `<p>${in1} + ${in2} = ${add(in1, in2)}</p>`;
+  }  
+  else if ((operator === `-`)) {
+    return `<p>${in1} - ${in2} = ${subtract(in1, in2)}</p>`;
+  } 
+   else if ((operator === `x`)) {
+    return `<p>${in1} x ${in2} = ${multiply(in1, in2)}</p>`;
+  }
+  else {
+    return `<p>${in1} / ${in2} = ${divide(in1, in2)}</p>`;
   }
 }
+
+DOMSelectors.button.addEventListener("click", function() {
+  let out = mathTime();
+  console.log(out);
+  DOMSelectors.history.insertAdjacentHTML('afterend', out)
+});
