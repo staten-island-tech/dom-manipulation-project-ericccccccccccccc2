@@ -5,6 +5,9 @@ const DOMSelectors = {
   history: document.getElementById("history"),
   button: document.getElementById("button"),
   clear: document.getElementById("clear"),
+  input1: document.getElementById("num1"),
+  input2: document.getElementById("num2"),
+  backspace: document.getElementById("lazy")
 };
 
 function redbkground(e) {
@@ -33,8 +36,8 @@ function divide(x, y) {
 
 function mathTime() {
   let operator = readOper();
-  let in1 = parseInt(document.getElementById("num1").value);
-  let in2 = parseInt(document.getElementById("num2").value);
+  let in1 = parseInt((DOMSelectors.input1).value);
+  let in2 = parseInt((DOMSelectors.input2).value);
   if ((operator === `+`)) {
     return `<p class="histtext">${in1} + ${in2} = ${add(in1, in2)}</p>`;
   }  
@@ -51,12 +54,15 @@ function mathTime() {
 
 DOMSelectors.button.addEventListener("click", function() {
   let out = mathTime();
-  DOMSelectors.history.insertAdjacentHTML('afterend', out)
+  DOMSelectors.history.insertAdjacentHTML('afterbegin', out)
 });
 
 
 DOMSelectors.clear.addEventListener("click", function() {
-  let arraynow = Array.from(document.getElementsByClassName("histtext"));
-  arraynow.remove();
+  DOMSelectors.history.innerHTML = "";
 });
 
+DOMSelectors.backspace.addEventListener("click", function(){
+  DOMSelectors.input1.value = "";
+  DOMSelectors.input2.value = "";
+});

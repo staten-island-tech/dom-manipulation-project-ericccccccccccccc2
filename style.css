@@ -1,3 +1,7 @@
+body {
+    background: #1b2b3a
+}
+
 h2{
     text-align: center;
 }
@@ -6,8 +10,18 @@ p{
     text-align: center;
 }
 
-#interact {
+.interact {
     display: flex;
     justify-content: center;
-    margin-right: 20px;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 7px;
+}
+
+#poopy {
+    margin-top: 20px;
+    color: #f5e162;
+    font-size: 60px;
+    font-family: 'Sono', sans-serif;
+
 }

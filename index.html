@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sono&display=swap" rel="stylesheet">
+
 </head>
 <body id="body">
     <h2 id="poopy">Calculator</h2>
-    <p>basic four function calculator</p>
-    <div id="interact">
+    <div class="interact 1">
         <input id="num1">
         <select id="oper">
             <option>+</option>
@@ -18,11 +21,14 @@
             <option>/</option> 
         <input id="num2">
         </select>
-        <button id="button">Solve</button>
-        <button id="clear">Clear History</button>
     </div> 
+    <div class="interact 2">
+        <button id="button">Solve</button>
+        <button id="lazy">Clear Inputs</button>
+        <button id="clear">Clear History</button>
+    </div>
+    <h2>history (past inputs)</h2>
     <div id="history" >
-        <h2>history (past inputs)</h2>
     </div> 
     <script src="index.js"></script
 </html>
