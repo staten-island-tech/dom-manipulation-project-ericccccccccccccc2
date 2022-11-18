@@ -1,9 +1,13 @@
 body {
     background: #1b2b3a
+
 }
 
 h2{
     text-align: center;
+    color: #f5e162;
+    font-family: 'Sono', sans-serif;
+    margin-top: 50px;
 }
 
 p{
@@ -14,14 +18,51 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-    margin-bottom: 7px;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-family: 'Catamaran', sans-serif;
+
 }
 
 #poopy {
-    margin-top: 20px;
-    color: #f5e162;
     font-size: 60px;
-    font-family: 'Sono', sans-serif;
+    margin-top: 20px;
+}
+
+.histtext {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 24px;
+}
+
+#num1 {
+    border:none;
+    -webkit-appearance: none;
+    -ms-progress-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: ##d6d6d6;
+    padding: 7px;
+    border-radius: 3px;
+    outline: none;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 15px;
+
 
 }
+
+#num2 {
+    border:none;
+    -webkit-appearance: none;
+    -ms-progress-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: ##d6d6d6;
+    padding: 7px;
+    border-radius: 3px;
+    outline: none;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 15px;
+
+}
+

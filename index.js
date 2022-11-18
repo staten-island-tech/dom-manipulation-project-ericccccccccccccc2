@@ -51,12 +51,33 @@ function mathTime() {
     return `<p class="histtext">${in1} / ${in2} = ${divide(in1, in2)}</p>`;
   }
 }
+function valid() {
+  let operator = readOper();
+  let in1 = parseInt((DOMSelectors.input1).value);
+  let in2 = parseInt((DOMSelectors.input2).value);
+  if ((operator === `+`)) {
+    return in1 + in2
+  }  
+  else if ((operator === `-`)) {
+    return in1 - in2
+  } 
+   else if ((operator === `x`)) {
+    return in1 * in2
+  }
+  else {
+    return in1 / in2
+  }
+}
 
 DOMSelectors.button.addEventListener("click", function() {
+  let yes = valid();
+  if (isNaN(yes)) {
+    DOMSelectors.history.insertAdjacentHTML('afterbegin', `<p class="histtext">put in valid numbers in the input</p>`)
+  }
+  else {
   let out = mathTime();
   DOMSelectors.history.insertAdjacentHTML('afterbegin', out)
-});
-
+  }});
 
 DOMSelectors.clear.addEventListener("click", function() {
   DOMSelectors.history.innerHTML = "";
