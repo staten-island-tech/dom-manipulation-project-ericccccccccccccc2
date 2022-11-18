@@ -7,7 +7,8 @@ const DOMSelectors = {
   clear: document.getElementById("clear"),
   input1: document.getElementById("num1"),
   input2: document.getElementById("num2"),
-  backspace: document.getElementById("lazy")
+  backspace: document.getElementById("lazy"),
+  histtext: document.getElementsByClassName("histtext"),
 };
 
 function readOper() {
@@ -32,55 +33,54 @@ function divide(x, y) {
 
 function mathTime() {
   let operator = readOper();
-  let in1 = parseInt((DOMSelectors.input1).value);
-  let in2 = parseInt((DOMSelectors.input2).value);
-  if ((operator === `+`)) {
+  let in1 = parseInt(DOMSelectors.input1.value);
+  let in2 = parseInt(DOMSelectors.input2.value);
+  if (operator === `+`) {
     return `<p class="histtext">${in1} + ${in2} = ${add(in1, in2)}</p>`;
-  }  
-  else if ((operator === `-`)) {
+  } else if (operator === `-`) {
     return `<p class="histtext">${in1} - ${in2} = ${subtract(in1, in2)}</p>`;
-  } 
-   else if ((operator === `x`)) {
+  } else if (operator === `x`) {
     return `<p class="histtext">${in1} x ${in2} = ${multiply(in1, in2)}</p>`;
-  }
-  else {
+  } else {
     return `<p class="histtext">${in1} / ${in2} = ${divide(in1, in2)}</p>`;
   }
 }
 
 function valid() {
   let operator = readOper();
-  let in1 = parseInt((DOMSelectors.input1).value);
-  let in2 = parseInt((DOMSelectors.input2).value);
-  if ((operator === `+`)) {
-    return in1 + in2
-  }  
-  else if ((operator === `-`)) {
-    return in1 - in2
-  } 
-   else if ((operator === `x`)) {
-    return in1 * in2
-  }
-  else {
-    return in1 / in2
+  let in1 = parseInt(DOMSelectors.input1.value);
+  let in2 = parseInt(DOMSelectors.input2.value);
+  if (operator === `+`) {
+    return in1 + in2;
+  } else if (operator === `-`) {
+    return in1 - in2;
+  } else if (operator === `x`) {
+    return in1 * in2;
+  } else {
+    return in1 / in2;
   }
 }
 
-DOMSelectors.button.addEventListener("click", function() {
+DOMSelectors.button.addEventListener("click", function () {
   let yes = valid();
   if (isNaN(yes)) {
-    DOMSelectors.history.insertAdjacentHTML('afterbegin', `<p class="histtext">put in valid numbers in the input</p>`)
+    DOMSelectors.history.insertAdjacentHTML(
+      "afterbegin",
+      `<p class="histtext">put in valid numbers in the input</p>`
+    );
+  } else {
+    let out = mathTime();
+    DOMSelectors.history.insertAdjacentHTML("afterbegin", out);
+    DOMSelectors.input1.value = "";
+    DOMSelectors.input2.value = "";
   }
-  else {
-  let out = mathTime();
-  DOMSelectors.history.insertAdjacentHTML('afterbegin', out)
-  }});
+});
 
-DOMSelectors.clear.addEventListener("click", function() {
+DOMSelectors.clear.addEventListener("click", function () {
   DOMSelectors.history.innerHTML = "";
 });
 
-DOMSelectors.backspace.addEventListener("click", function(){
+DOMSelectors.backspace.addEventListener("click", function () {
   DOMSelectors.input1.value = "";
   DOMSelectors.input2.value = "";
 });
