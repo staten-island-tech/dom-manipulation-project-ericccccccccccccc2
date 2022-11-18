@@ -79,8 +79,3 @@ DOMSelectors.button.addEventListener("click", function () {
 DOMSelectors.clear.addEventListener("click", function () {
   DOMSelectors.history.innerHTML = "";
 });
-
-DOMSelectors.backspace.addEventListener("click", function () {
-  DOMSelectors.input1.value = "";
-  DOMSelectors.input2.value = "";
-});
