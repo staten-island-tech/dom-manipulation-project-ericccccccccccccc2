@@ -10,10 +10,6 @@ const DOMSelectors = {
   backspace: document.getElementById("lazy")
 };
 
-function redbkground(e) {
-  e.style.backgroundColor = "red";
-}
-
 function readOper() {
   return document.getElementById("oper").value;
 }
@@ -51,6 +47,7 @@ function mathTime() {
     return `<p class="histtext">${in1} / ${in2} = ${divide(in1, in2)}</p>`;
   }
 }
+
 function valid() {
   let operator = readOper();
   let in1 = parseInt((DOMSelectors.input1).value);
