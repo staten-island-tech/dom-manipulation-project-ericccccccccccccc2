@@ -9,7 +9,7 @@ const DOMSelectors = {
   input2: document.getElementById("num2"),
   backspace: document.getElementById("lazy"),
   histtext: document.getElementsByClassName("histtext"),
-  last: document.getElementById("last")
+  last: document.getElementById("last"),
 };
 
 function readOper() {
@@ -82,7 +82,7 @@ DOMSelectors.clear.addEventListener("click", function () {
 });
 
 DOMSelectors.last.addEventListener("click", function () {
-  let tempList = document.getElementsByClassName('histtext');
+  let tempList = document.getElementsByClassName("histtext");
   let removeThis = tempList.item(0);
   removeThis.remove();
 });
